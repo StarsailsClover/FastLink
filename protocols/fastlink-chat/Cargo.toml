@@ -1,0 +1,33 @@
+[package]
+name = "fastlink-chat"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "FastLink-Chat: Zero-server end-to-end encrypted instant messaging sub-protocol"
+documentation = "https://docs.fastlink.rs/fastlink-chat"
+
+[dependencies]
+mother-protocol = { path = "../../core/mother-protocol" }
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libcommon = { path = "../../core/libcommon" }
+fastlink-p2p = { path = "../fastlink-p2p" }
+fastlink-server = { path = "../fastlink-server" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+bytes.workspace = true
+futures.workspace = true
+parking_lot.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+tokio-test = "0.4"
+proptest = "1.4"
+
+[[test]]
+name = "chat_tests"
+path = "tests/chat_tests.rs"

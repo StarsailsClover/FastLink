@@ -1,0 +1,17 @@
+[package]
+name = "fastlink-benchmarks"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "benchmark"
+path = "src/main.rs"
+
+[dependencies]
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libfasttransport = { path = "../../core/libfasttransport" }
+libcommon = { path = "../../core/libcommon" }
+
+tokio = { version = "1.35", features = ["full"] }
+criterion = "0.5"
+tracing = "0.1"

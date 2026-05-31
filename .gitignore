@@ -1,0 +1,44 @@
+# Rust
+/target/
+**/target/
+Cargo.lock
+*.rs.bk
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.wasm
+
+# Test artifacts
+*.prof*
+*.gcda
+*.gcno
+*.gcov
+
+# Logs
+*.log
+logs/
+
+# Local configuration
+*.local
+.env
+.env.local
+
+# Backup files
+backup_*/
+*.bak

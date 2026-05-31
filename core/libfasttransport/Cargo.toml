@@ -1,0 +1,32 @@
+[package]
+name = "libfasttransport"
+version = "0.1.0"
+edition = "2021"
+description = "FastLink Unified Transport and Multiplexing Library"
+
+[dependencies]
+mother-protocol = { path = "../mother-protocol" }
+libfastcrypto = { path = "../libfastcrypto" }
+libcommon = { path = "../libcommon" }
+
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tracing = "0.1"
+thiserror = "1.0"
+anyhow = "1.0"
+async-trait = "0.1"
+bytes = "1.5"
+futures = "0.3"
+pin-project = "1.1"
+yamux = "0.10"
+parking_lot = "0.12"
+dashmap = "5.5"
+socket2 = "0.5"
+rand = "0.8"
+
+[dev-dependencies]
+tokio-test = "0.4"
+criterion = "0.5"
+
+[features]
+default = []

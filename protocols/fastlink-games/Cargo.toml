@@ -1,0 +1,32 @@
+[package]
+name = "fastlink-games"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "FastLink-Games: Low-latency gaming networking sub-protocol"
+documentation = "https://docs.fastlink.rs/fastlink-games"
+
+[dependencies]
+mother-protocol = { path = "../../core/mother-protocol" }
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libcommon = { path = "../../core/libcommon" }
+libfasttransport = { path = "../../core/libfasttransport" }
+fastlink-p2p = { path = "../fastlink-p2p" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+bytes.workspace = true
+futures.workspace = true
+parking_lot.workspace = true
+
+[dev-dependencies]
+tokio-test = "0.4"
+proptest = "1.4"
+
+[[test]]
+name = "games_tests"
+path = "tests/games_tests.rs"

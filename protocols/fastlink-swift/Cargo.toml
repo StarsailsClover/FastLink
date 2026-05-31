@@ -1,0 +1,35 @@
+[package]
+name = "fastlink-swift"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "FastLink-Swift: High-performance anti-DPI tunnel sub-protocol"
+documentation = "https://docs.fastlink.rs/fastlink-swift"
+
+[dependencies]
+mother-protocol = { path = "../../core/mother-protocol" }
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libcommon = { path = "../../core/libcommon" }
+libantidpi = { path = "../../core/libantidpi" }
+libfasttransport = { path = "../../core/libfasttransport" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+bytes.workspace = true
+futures.workspace = true
+rustls.workspace = true
+parking_lot.workspace = true
+bincode = "1.3"
+rand.workspace = true
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1.2"
+
+[[test]]
+name = "swift_tests"
+path = "tests/swift_tests.rs"

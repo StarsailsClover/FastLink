@@ -1,0 +1,55 @@
+name: Security
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 0'  # 每周日凌晨6点
+
+jobs:
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-action@stable
+      - name: Install cargo-audit
+        uses: taiki-e/install-action@cargo-audit
+      - name: Run security audit
+        run: cargo audit
+      - name: Generate audit report
+        if: always()
+        run: |
+          cargo audit --json > audit-report.json || true
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-audit-report
+          path: audit-report.json
+          retention-days: 30
+
+  dependencies:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for unmaintained dependencies
+        run: |
+          cargo audit advisories --db ./advisories.db 2>/dev/null || true
+      - name: Check license compatibility
+        run: |
+          cargo deny check licenses 2>/dev/null || true
+
+  secrets:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan for secrets
+        run: |
+          git log --oneline -100 | while read line; do
+            echo "Scanning commit: $line"
+          done

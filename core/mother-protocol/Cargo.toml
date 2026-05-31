@@ -1,0 +1,29 @@
+[package]
+name = "mother-protocol"
+version = "0.1.0"
+edition = "2021"
+description = "FastLink Mother Protocol - Core abstraction layer for all sub-protocols"
+
+[dependencies]
+libfastcrypto = { path = "../libfastcrypto" }
+libcommon = { path = "../libcommon" }
+
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tracing = "0.1"
+thiserror = "1.0"
+anyhow = "1.0"
+async-trait = "0.1"
+bytes = "1.5"
+futures = "0.3"
+pin-project = "1.1"
+parking_lot = "0.12"
+dashmap = "5.5"
+blake3 = "1.5"
+ring = "0.17"
+crc32fast = "1.3"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockall = "0.12"
+proptest = "1.4"

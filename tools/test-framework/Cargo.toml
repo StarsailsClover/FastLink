@@ -1,0 +1,26 @@
+[package]
+name = "fastlink-test-framework"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "test_framework"
+path = "src/lib.rs"
+
+[[bin]]
+name = "test-runner"
+path = "src/main.rs"
+
+[dependencies]
+mother-protocol = { path = "../../core/mother-protocol" }
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libcommon = { path = "../../core/libcommon" }
+
+tokio = { version = "1.35", features = ["full"] }
+clap = { version = "4.4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1"
+rand = "0.8"

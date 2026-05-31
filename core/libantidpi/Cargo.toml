@@ -1,0 +1,31 @@
+[package]
+name = "libantidpi"
+version = "0.1.0"
+edition = "2021"
+description = "FastLink Anti-DPI Traffic Obfuscation Library"
+
+[dependencies]
+mother-protocol = { path = "../mother-protocol" }
+libfastcrypto = { path = "../libfastcrypto" }
+libcommon = { path = "../libcommon" }
+libfasttransport = { path = "../libfasttransport" }
+
+tokio = { version = "1.35", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+thiserror = "1.0"
+anyhow = "1.0"
+bytes = "1.5"
+futures = "0.3"
+rustls = { version = "0.21", features = ["dangerous_configuration"] }
+webpki-roots = "0.25"
+parking_lot = "0.12"
+rand = "0.8"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1.2"
+
+[features]
+default = []

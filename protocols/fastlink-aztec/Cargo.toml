@@ -1,0 +1,35 @@
+[package]
+name = "fastlink-aztec"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "FastLink-Aztec: Enterprise distributed Mesh networking sub-protocol"
+documentation = "https://docs.fastlink.rs/fastlink-aztec"
+
+[dependencies]
+mother-protocol = { path = "../../core/mother-protocol" }
+libfastcrypto = { path = "../../core/libfastcrypto" }
+libcommon = { path = "../../core/libcommon" }
+libfastdht = { path = "../../core/libfastdht" }
+libomnilink = { path = "../../core/libomnilink" }
+tokio.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+bytes.workspace = true
+futures.workspace = true
+parking_lot.workspace = true
+dashmap.workspace = true
+rand.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+tokio-test = "0.4"
+proptest = "1.4"
+
+[[test]]
+name = "aztec_tests"
+path = "tests/aztec_tests.rs"
