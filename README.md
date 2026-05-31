@@ -5,105 +5,105 @@
 
 ---
 
-## 🚀 项目简介
+## 🚀 Project Introduction
 
-FastLink 是一套高性能 P2P 网络协议套件，提供：
+FastLink is a high-performance P2P networking protocol suite providing:
 
-- **母协议**: 统一抽象层、时间同步、NAT参数库
-- **P2P 协议**: BirthdayPunch NAT穿透、建连状态机
-- **Server 协议**: 五维加权智能路由
-- **Swift 隧道**: 抗 DPI 混淆传输
-- **Games 协议**: 低延迟游戏联机
-- **Aztec 协议**: 企业级分布式 Mesh 组网
-- **Chat 协议**: 零服务器端到端加密通讯
+- **Mother Protocol**: Unified abstraction layer, time synchronization, NAT parameter library
+- **P2P Protocol**: BirthdayPunch NAT traversal, connection state machine
+- **Server Protocol**: Five-dimensional weighted intelligent routing
+- **Swift Tunnel**: Anti-DPI obfuscated transport
+- **Games Protocol**: Low-latency game networking
+- **Aztec Protocol**: Enterprise-grade distributed Mesh networking
+- **Chat Protocol**: Zero-server end-to-end encrypted messaging
 
 ---
 
-## 📦 快速开始
+## 📦 Quick Start
 
 ```bash
-# 克隆仓库
+# Clone repository
 git clone https://github.com/StarsailsClover/FastLink.git
 cd FastLink
 
-# 编译项目
+# Build project
 cargo build
 
-# 运行测试
+# Run tests
 cargo test
 
-# 运行 CLI
+# Run CLI
 cargo run --bin fastlink-cli
 ```
 
 ---
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 FastLink/
-├── apps/fastlink-cli/          # CLI 应用
-├── core/                        # 核心库
-│   ├── mother-protocol/         # 母协议
-│   ├── libfastcrypto/           # 加密库
-│   ├── libcommon/               # 公共组件
-│   ├── libomnilink/             # P2P 全链接
-│   ├── libfasttransport/        # 传输层
+├── apps/fastlink-cli/          # CLI application
+├── core/                        # Core libraries
+│   ├── mother-protocol/         # Mother protocol
+│   ├── libfastcrypto/           # Crypto library
+│   ├── libcommon/               # Common components
+│   ├── libomnilink/             # P2P omnilink
+│   ├── libfasttransport/        # Transport layer
 │   ├── libfastdht/              # DHT
-│   ├── libantidpi/              # 反 DPI
-│   └── libnetworktest/          # 网络测试
-└── protocols/                   # 协议实现
-    ├── fastlink-p2p/            # P2P 协议
-    ├── fastlink-server/         # Server 协议
-    ├── fastlink-swift/          # Swift 隧道
-    ├── fastlink-games/          # 游戏联机
-    ├── fastlink-aztec/          # 企业 Mesh
-    └── fastlink-chat/           # 加密通讯
+│   ├── libantidpi/              # Anti-DPI
+│   └── libnetworktest/          # Network testing
+└── protocols/                   # Protocol implementations
+    ├── fastlink-p2p/            # P2P protocol
+    ├── fastlink-server/         # Server protocol
+    ├── fastlink-swift/          # Swift tunnel
+    ├── fastlink-games/          # Game networking
+    ├── fastlink-aztec/          # Enterprise Mesh
+    └── fastlink-chat/           # Encrypted messaging
 ```
 
 ---
 
-## 🔧 核心特性
+## 🔧 Core Features
 
-### BirthdayPunch NAT 穿透
-基于生日悖论的确定性端口生成算法，支持中国移动/电信/联通三网自适应。
+### BirthdayPunch NAT Traversal
+Deterministic port generation algorithm based on the birthday paradox, with adaptive support for China Mobile/Telecom/Unicom ISPs.
 
-### 五维加权路由
-```text
-W = 0.4·延迟 + 0.3·丢包 + 0.1·跳数 + 0.15·运营商 + 0.05·地理
+### Five-Dimensional Weighted Routing
+```
+W = 0.4·Latency + 0.3·Loss + 0.1·Hops + 0.15·ISP + 0.05·Geo
 ```
 
-### 6 状态建连自动机
+### 6-State Connection State Machine
 ```
-空闲 → 探测 → 预映射 → 打洞 → 已连通/断开
-         ↕ 角色互换
-        失败上报
+Idle → Detect → PreMap → Punch → Connected/Disconnected
+         ↕ Role Swap
+        Failure Report
 ```
 
 ---
 
-## 📝 文档
+## 📝 Documentation
 
-- [母协议深度拆解](workplace/FastLink%20母协议%20全维度深度拆解.md)
-- [P2P 篇深度研讨](workplace/FastLink%20七大子协议全维度深度研讨%EF%BC%9AFastLink-P2P%20篇.md)
-- [Server 子协议](workplace/第二子协议%EF%BC%9AFastLink-Server%20去中心化中继与智能路由子协议.md)
-- [完整技术文档](workplace/FastLink完整技术文档与GitHub仓库结构.md)
-
----
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
+- [Mother Protocol Deep Dive](workplace/FastLink%20母协议%20全维度深度拆解.md)
+- [P2P Deep Discussion](workplace/FastLink%20七大子协议全维度深度研讨%EF%BC%9AFastLink-P2P%20篇.md)
+- [Server Sub-protocol](workplace/第二子协议%EF%BC%9AFastLink-Server%20去中心化中继与智能路由子协议.md)
+- [Complete Technical Docs](workplace/FastLink完整技术文档与GitHub仓库结构.md)
 
 ---
 
-## 📄 许可证
+## 🤝 Contributing
+
+Issues and Pull Requests are welcome!
+
+---
+
+## 📄 License
 
 MIT OR Apache-2.0
 
 ---
 
-## 📬 联系方式
+## 📬 Contact
 
 **Email**: [sailshuang@gmail.com](mailto:sailshuang@gmail.com)  
 **GitHub**: [@StarsailsClover](https://github.com/StarsailsClover)
