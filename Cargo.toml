@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-    # 核心库
+    # 核心
     "core/mother-protocol",
     "core/libfastcrypto",
     "core/libcommon",
@@ -11,7 +11,7 @@ members = [
     "core/libantidpi",
     "core/libnetworktest",
     
-    # 子协议
+    # 协议
     "protocols/fastlink-p2p",
     "protocols/fastlink-server",
     "protocols/fastlink-swift",
@@ -32,11 +32,11 @@ members = [
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
-authors = ["FastLink Team <team@fastlink.rs>"]
+authors = ["SailsClover <sailshuang@gmail.com>"]
 license = "MIT"
 description = "High-performance P2P networking protocol suite"
-homepage = "https://github.com/fastlink-rs/fastlink"
-repository = "https://github.com/fastlink-rs/fastlink"
+homepage = "https://github.com/StarsailsClover/FastLink"
+repository = "https://github.com/StarsailsClover/FastLink"
 documentation = "https://docs.fastlink.rs"
 keywords = ["p2p", "networking", "vpn", "distributed", "mesh"]
 categories = ["network-programming", "cryptography"]
@@ -65,39 +65,10 @@ config = "0.14"
 rand = "0.8"
 getrandom = "0.2"
 ring = "0.17"
-x25519-dalek = { version = "2.0", features = ["static_secrets"] }
-ed25519-dalek = { version = "2.0", features = ["rand_core"] }
-blake3 = "1.5"
-hkdf = "0.12"
+ed25519-dalek = "2.1"
+x25519-dalek = "2.0"
 hmac = "0.12"
 sha2 = "0.10"
-aes-gcm = "0.10"
-chacha20poly1305 = "0.10"
-crc32fast = "1.3"
-byteorder = "1.5"
-socket2 = "0.5"
-mio = "0.8"
-yamux = "0.10"
-rustls = { version = "0.21", features = ["dangerous_configuration"] }
-webpki-roots = "0.25"
-quote = "1.0"
-proc-macro2 = "1.0"
-prost = "0.12"
-tonic = "0.10"
-rand_distr = "0.4"
-statistics = "0.1"
+blake3 = "1.5"
 bincode = "1.3"
-criterion = { version = "0.5", features = ["html_reports"] }
-
-[profile.release]
-opt-level = 3
-lto = true
-codegen-units = 1
-strip = true
-
-[profile.dev]
-opt-level = 0
-debug = true
-
-[profile.bench]
-inherits = "release"
+toml = "0.8"
