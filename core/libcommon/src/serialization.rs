@@ -1,5 +1,6 @@
 //! FastLink Serialization Utilities
 
+use serde::{Deserialize, Serialize};
 use std::io::{Read, Write};
 use thiserror::Error;
 

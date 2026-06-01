@@ -131,37 +131,66 @@ impl Default for TaskScheduler {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::sync::{Arc, Mutex};
 
     #[test]
     fn test_scheduler_basic() {
         let mut scheduler = TaskScheduler::new();
-        let mut counter = 0;
+        let counter = Arc::new(Mutex::new(0));
+        let counter_clone = Arc::clone(&counter);
         
-        scheduler.schedule(0, Duration::from_millis(10), || {
-            counter += 1;
+        scheduler.schedule(0, Duration::from_millis(10), move || {
+            *counter_clone.lock().unwrap() += 1;
         });
         
         assert_eq!(scheduler.len(), 1);
-        assert_eq!(counter, 0);
+        assert_eq!(*counter.lock().unwrap(), 0);
     }
 
     #[test]
     fn test_scheduler_priority() {
         let mut scheduler = TaskScheduler::new();
-        let mut order = Vec::new();
+        let order = Arc::new(Mutex::new(Vec::new()));
+        let order1 = Arc::clone(&order);
+        let order2 = Arc::clone(&order);
         
-        scheduler.schedule(1, Duration::from_secs(0), || {
-            order.push(1);
+        scheduler.schedule(1, Duration::from_secs(0), move || {
+            order1.lock().unwrap().push(1);
         });
         
-        scheduler.schedule(0, Duration::from_secs(0), || {
-            order.push(0);
+        scheduler.schedule(0, Duration::from_secs(0), move || {
+            order2.lock().unwrap().push(0);
         });
         
+        // Execute highest priority task
         if let Some(task) = scheduler.poll() {
             task();
         }
         
-        assert_eq!(order, vec![0]);
+        let result = order.lock().unwrap().clone();
+        assert_eq!(result, vec![0]);
+    }
+    
+    #[test]
+    fn test_scheduler_multiple_tasks() {
+        let mut scheduler = TaskScheduler::new();
+        let order = Arc::new(Mutex::new(Vec::new()));
+        
+        // Schedule tasks with different priorities
+        for i in 0..5 {
+            let order_clone = Arc::clone(&order);
+            scheduler.schedule(i, Duration::from_secs(0), move || {
+                order_clone.lock().unwrap().push(i);
+            });
+        }
+        
+        // Execute all tasks in priority order
+        while let Some(task) = scheduler.poll() {
+            task();
+        }
+        
+        let result = order.lock().unwrap().clone();
+        // Should execute in priority order: 0, 1, 2, 3, 4
+        assert_eq!(result, vec![0, 1, 2, 3, 4]);
     }
 }

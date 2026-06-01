@@ -117,10 +117,16 @@ mod tests {
             100,
         );
         
-        assert_eq!(header.magic, MessageHeader::MAGIC);
-        assert_eq!(header.version, 0x01);
-        assert_eq!(header.msg_type, MessageType::Data as u8);
-        assert_eq!(header.protocol_type, ProtocolType::P2P as u8);
+        // Copy values to avoid packed struct alignment issues
+        let magic = header.magic;
+        let version = header.version;
+        let msg_type = header.msg_type;
+        let protocol_type = header.protocol_type;
+        
+        assert_eq!(magic, MessageHeader::MAGIC);
+        assert_eq!(version, 0x01);
+        assert_eq!(msg_type, MessageType::Data as u8);
+        assert_eq!(protocol_type, ProtocolType::P2P as u8);
     }
 
     #[test]
