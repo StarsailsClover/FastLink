@@ -1,19 +1,22 @@
-# FastLink v0.2.0-alpha Pre-Release
+# FastLink v26.5-20260603 Release Notes
 
-**发布日期**: 2026-06-02  
-**状态**: Pre-Release (Alpha)  
-**分支**: main  
-**标签**: v0.2.0-alpha
-
----
-
-## 🎯 发布摘要
-
-FastLink v0.2.0-alpha 是第一个可编译、可构建的 Pre-Release 版本。所有核心库和子协议已实现，CLI 工具可用。
+**发布日期**: 2026-06-03  
+**状态**: Pre-Release  
+**格式版本**: v主版本.次版本-日期 (v26.5-20260603)  
+**分支**: main
 
 ---
 
-## ✅ 已完成
+## 🎯 版本格式说明
+
+本版本采用 **v主版本.次版本-日期** 格式：
+- **26**: 主版本号 - 对应 2026 年
+- **5**: 次版本号 - 第 5 个迭代
+- **20260603**: 发布日期 - 2026年6月3日
+
+---
+
+## ✅ 本次发布亮点
 
 ### 架构实现
 - [x] **7 个核心库**: mother-protocol, libfastcrypto, libcommon, libomnilink, libfasttransport, libfastdht, libantidpi
@@ -27,11 +30,17 @@ FastLink v0.2.0-alpha 是第一个可编译、可构建的 Pre-Release 版本。
 - [x] `cargo build --workspace` ✅ 通过
 - [x] CI/CD 配置完成 (GitHub Actions)
 
+### 项目整理
+- [x] 更新 `.gitignore` - 添加全面的忽略规则
+- [x] 移除 `FastLinkMC` - 作为独立子项目排除
+- [x] 清理临时文件 - 无日志/备份文件被跟踪
+- [x] 添加发布指南和脚本
+
 ### 文档
 - [x] AUDIT_REPORT.md - 完整项目审计
 - [x] DEVELOPMENT_GUIDE.md - 开发接手指南
+- [x] PUBLISH_GUIDE.md - 发布指南
 - [x] README.md - 项目介绍
-- [x] 代码注释和文档
 
 ### 修复
 - [x] 修复 Cargo.toml 缺少 rustls 依赖
@@ -42,23 +51,6 @@ FastLink v0.2.0-alpha 是第一个可编译、可构建的 Pre-Release 版本。
 
 ---
 
-## ⚠️ 已知问题
-
-### 测试
-- 部分测试逻辑需完善 (15/18 通过 in mother-protocol)
-- 测试文件多为占位符，需实现具体用例
-- 基准测试框架需扩展
-
-### 编译警告
-- 存在未使用字段的警告 (可用 `cargo fix` 自动修复)
-- 部分模块缺少文档注释
-
-### 功能
-- CLI 命令为框架，需完善实际功能
-- 工具模块需实现具体功能
-
----
-
 ## 📦 安装和构建
 
 ```bash
@@ -66,8 +58,8 @@ FastLink v0.2.0-alpha 是第一个可编译、可构建的 Pre-Release 版本。
 git clone https://github.com/StarsailsClover/FastLink.git
 cd FastLink
 
-# 切换到 Pre-Release 版本
-git checkout v0.2.0-alpha
+# 切换到本版本
+git checkout v26.5-20260603
 
 # 构建
 cargo build --release
@@ -97,7 +89,7 @@ cargo test --lib
 
 ## 📊 代码统计
 
-- **Rust 文件**: 82+
+- **Rust 文件**: 121+
 - **核心模块**: 7 个库
 - **子协议**: 6 个实现
 - **总行数**: ~15,000+
@@ -105,25 +97,52 @@ cargo test --lib
 
 ---
 
+## ⚠️ 已知问题
+
+### 测试
+- 部分测试逻辑需完善 (15/18 通过 in mother-protocol)
+- 测试文件多为占位符，需实现具体用例
+- 基准测试框架需扩展
+
+### 编译警告
+- 存在未使用字段的警告 (可用 `cargo fix` 自动修复)
+- 部分模块缺少文档注释
+
+### 功能
+- CLI 命令为框架，需完善实际功能
+- 工具模块需实现具体功能
+
+---
+
 ## 🗺️ 路线图
 
-### v0.2.0-beta (计划 2026-06-30)
+### v26.6-20260630 (计划)
 - [ ] 实现所有测试用例
 - [ ] 完善 CLI 功能
 - [ ] 添加集成测试
 - [ ] 性能优化
 
-### v0.3.0 (计划 2026-07-30)
+### v26.7-20260730 (计划)
 - [ ] 完整 P2P 节点实现
 - [ ] DHT 网络测试
 - [ ] NAT 穿透优化
 - [ ] 文档完善
 
-### v1.0.0 (计划 2026-09-30)
+### v27.0-20260930 (计划)
 - [ ] 稳定 API
 - [ ] 完整文档
 - [ ] 安全审计
 - [ ] 生产就绪
+
+---
+
+## 📁 相关文档
+
+- [AUDIT_REPORT.md](AUDIT_REPORT.md) - 项目审计报告
+- [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md) - 开发接手指南
+- [PUBLISH_GUIDE.md](PUBLISH_GUIDE.md) - 发布指南
+- [README.md](README.md) - 项目介绍
+- [RELEASE_NOTES_v26.5-20260531.md](RELEASE_NOTES_v26.5-20260531.md) - 上一版本
 
 ---
 
@@ -147,4 +166,6 @@ MIT OR Apache-2.0
 
 ---
 
-*此版本由小跃 (StepFun AI) 协助审计和修复*
+**发布者**: SailsClover  
+**协助**: 小跃 (StepFun AI)  
+**发布日期**: 2026-06-03

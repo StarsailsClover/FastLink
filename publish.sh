@@ -7,7 +7,7 @@ echo "=========================="
 
 # Check if in correct directory
 if [ ! -f "Cargo.toml" ]; then
-    echo "‚ùå Error: Not in FastLink directory"
+    echo "‚ù?Error: Not in FastLink directory"
     exit 1
 fi
 
@@ -29,14 +29,14 @@ git push -u origin main
 
 # Push tags
 echo ""
-echo "üè∑Ô∏è  Pushing tags..."
-git push origin v0.2.0-alpha
+echo "üè∑Ô∏? Pushing tags..."
+git push origin v26.5-20260603
 git push origin v26.5-20260531
 
 echo ""
-echo "‚úÖ Publish complete!"
+echo "‚ú?Publish complete!"
 echo ""
 echo "Next steps:"
 echo "1. Visit https://github.com/StarsailsClover/FastLink"
-echo "2. Create a new Release with tag v0.2.0-alpha"
+echo "2. Create a new Release with tag v26.5-20260603"
 echo "3. See PUBLISH_GUIDE.md for detailed instructions"

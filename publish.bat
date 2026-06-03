@@ -38,7 +38,7 @@ echo.
 
 REM Push tags
 echo [STEP 3] Pushing tags...
-git push origin v0.2.0-alpha
+git push origin v26.5-20260603
 git push origin v26.5-20260531
 echo [OK] Tags pushed
 echo.
@@ -49,7 +49,7 @@ echo ======================================
 echo.
 echo Next steps:
 echo   1. Visit https://github.com/StarsailsClover/FastLink
-echo   2. Create a new Release with tag v0.2.0-alpha
+echo   2. Create a new Release with tag v26.5-20260603
 echo   3. See PUBLISH_GUIDE.md for detailed instructions
 echo.
 pause
