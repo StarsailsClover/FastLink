@@ -3,42 +3,80 @@
 **/target/
 Cargo.lock
 *.rs.bk
+*.rlib
+*.dll
+*.so
+*.dylib
+*.exe
 
-# IDE
+# IDE and Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+*.sublime-*
 
 # OS
 .DS_Store
 Thumbs.db
+*.lnk
 
 # Build artifacts
 *.o
 *.a
-*.so
-*.dylib
-*.dll
-*.exe
-*.wasm
+*.lib
 
-# Test artifacts
-*.prof*
-*.gcda
-*.gcno
-*.gcov
+# Testing
+tarpaulin-report.xml
+*.profraw
+
+# Documentation
+/doc/
+*.md.bak
+
+# Environment
+.env
+.env.local
+*.key
+*.pem
+*.cert
 
 # Logs
 *.log
 logs/
 
-# Local configuration
-*.local
-.env
-.env.local
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Network test artifacts
+test-results/
+benchmark-results/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
 
 # Backup files
-backup_*/
 *.bak
+*.backup
+
+# Node.js (if any frontend)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Submodules (managed separately)
+FastLinkMC/
+
+# Large binary files
+*.bin
+*.dat
+*.pkl
+
+# Coverage
+coverage/
+*.lcov
