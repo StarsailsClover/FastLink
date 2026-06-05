@@ -29,7 +29,3 @@ dashmap.workspace = true
 [dev-dependencies]
 tokio-test = "0.4"
 proptest = "1.4"
-
-[[test]]
-name = "p2p_tests"
-path = "tests/p2p_tests.rs"

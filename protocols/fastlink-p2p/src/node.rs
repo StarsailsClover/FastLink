@@ -85,7 +85,7 @@ pub struct P2PNode {
     event_receiver: RwLock<Option<mpsc::Receiver<P2PEvent>>>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum NodeState {
     Idle,
     Bootstrapping,

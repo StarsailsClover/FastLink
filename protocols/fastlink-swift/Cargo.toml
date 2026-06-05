@@ -29,7 +29,3 @@ rand.workspace = true
 [dev-dependencies]
 tokio-test = "0.4"
 mockito = "1.2"
-
-[[test]]
-name = "swift_tests"
-path = "tests/swift_tests.rs"

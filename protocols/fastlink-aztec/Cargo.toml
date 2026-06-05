@@ -29,7 +29,3 @@ uuid.workspace = true
 [dev-dependencies]
 tokio-test = "0.4"
 proptest = "1.4"
-
-[[test]]
-name = "aztec_tests"
-path = "tests/aztec_tests.rs"

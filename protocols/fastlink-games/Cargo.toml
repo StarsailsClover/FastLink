@@ -26,7 +26,3 @@ parking_lot.workspace = true
 [dev-dependencies]
 tokio-test = "0.4"
 proptest = "1.4"
-
-[[test]]
-name = "games_tests"
-path = "tests/games_tests.rs"
