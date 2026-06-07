@@ -80,3 +80,16 @@ FastLinkMC/
 # Coverage
 coverage/
 *.lcov
+
+# Project documentation (local only)
+AUDIT_REPORT.md
+DEVELOPMENT_GUIDE.md
+PUBLISH_GUIDE.md
+PRE_RELEASE*.md
+RELEASE_NOTES*.md
+
+# Local scripts
+publish.bat
+publish.sh
+*.local.sh
+*.local.bat
